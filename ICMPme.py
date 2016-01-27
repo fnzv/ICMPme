@@ -13,7 +13,7 @@
 ###  PoC\Tutorial and wiki coming soon
 
 from scapy.all import *
-import hashlib,argparser
+import hashlib,argparser,os
 import pyaes,threading,logging
 logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
 
@@ -35,7 +35,7 @@ ipdest=results.ipdest
 key = "This_key_for_demo_purposes_only!"
 
 
-iv = "InitializationVe"
+iv =os.urandom(32) #generate random 256 IV
 
 
 
