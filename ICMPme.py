@@ -13,7 +13,7 @@
 ###  PoC\Tutorial and wiki coming soon
 
 from scapy.all import *
-import hashlib,argparser,os
+import hashlib,argparse,os
 import pyaes,threading,logging
 logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
 
@@ -22,7 +22,7 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('-ip', action='store', default="none",
                     dest='ipdest',
-                    help='Destination IP Address that's running ICMPme endpoint')
+                    help='Destination IP Address thats running ICMPme endpoint')
 
 
 
@@ -80,7 +80,6 @@ while msg!="quit":
         # send message to other host FORMAT private_auth_code and msg encrypted AES CTR
         msg_enc=encrypt_icmp(msg)
         msg_out=private_auth_code+msg_enc
-        sniff(iface="eth0",filter="port 53",prn=queryguard, store= 0,count=100)
         ###### Capturing stdout
         stdout = sys.stdout
         capturer = StringIO.StringIO()
