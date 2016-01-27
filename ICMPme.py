@@ -15,6 +15,9 @@
 from scapy.all import *
 import hashlib,argparse,os
 import pyaes,threading,logging
+import sys,StringIO
+
+
 logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
 
 
