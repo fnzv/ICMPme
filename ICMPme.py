@@ -18,18 +18,17 @@ import pyaes,threading,logging
 logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
 
 
-# A 256 bit (32 byte) key
-key = "LongSecretKey"
+# A 32 Byte key for encryption (32 Characters long)
+key = "This_key_for_demo_purposes_only!"
 
 
 iv = "InitializationVe"
 
 
-ip=os.popen("hostname -I | awk '{print $1;}'").read()
 
+#Secret for authentication
 
-
-private_auth_code=hashlib.sha224("Secret"+ip).hexdigest()
+private_auth_code=hashlib.sha224("Secret").hexdigest()
 
 def ICMPre(pkt):
         #print "Received ICMP packet checking if ICMPme format"
