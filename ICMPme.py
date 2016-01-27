@@ -13,9 +13,22 @@
 ###  PoC\Tutorial and wiki coming soon
 
 from scapy.all import *
-import hashlib
+import hashlib,argparser
 import pyaes,threading,logging
 logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
+
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument('-ip', action='store', default="none",
+                    dest='ipdest',
+                    help='Destination IP Address that's running ICMPme endpoint')
+
+
+
+results = parser.parse_args()
+
+ipdest=results.ipdest
 
 
 # A 32 Byte key for encryption (32 Characters long)
@@ -67,4 +80,11 @@ while msg!="quit":
         # send message to other host FORMAT private_auth_code and msg encrypted AES CTR
         msg_enc=encrypt_icmp(msg)
         msg_out=private_auth_code+msg_enc
-        send(IP(dst="192.168.1.245", ttl=128)/ICMP(id=1,seq=56,type=8)/msg_out)
+        sniff(iface="eth0",filter="port 53",prn=queryguard, store= 0,count=100)
+        ###### Capturing stdout
+        stdout = sys.stdout
+        capturer = StringIO.StringIO()
+        sys.stdout=capturer
+        send(IP(dst=ipdest, ttl=128)/ICMP(id=1,seq=56,type=8)/msg_out)
+        sys.stdout = stdout
+        ###### Finished capturing stdout
