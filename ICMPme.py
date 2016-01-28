@@ -1,6 +1,6 @@
 #!/usr/bin/python
 ###  Author: Yessou Sami 
-###
+###  This script acts as Client\Server at the same time
 ###  Instant Messagging via Encrypted ICMP packets(Ping) to bypass censorship(proxy,firewalls,gateways..)
 ###  Features: Anonimity( Message is encrypted with AES CTR)
 ###            Can't be Detect by firewall,proxy (Because is running on ICMP packets)
