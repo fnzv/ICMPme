@@ -32,7 +32,7 @@ parser.add_argument('-type',action='store', default=31,
 
 results = parser.parse_args()
 
-type=results.type
+type=int(results.type)
 ipdest=results.ipdest
 
 
