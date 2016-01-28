@@ -23,7 +23,8 @@ The exchange of keys isn't managed via ICMPme script(in the todo list) :<br>
 2) **key**: is the 256 Bit key used by the AES CTR Encryption algorithm<br>
 <br><br>
 
-
+### Why Ping packets?
+Well that's easy... no one will be able to know if these ICMP packets are Pings from one host to another or messages because everything is encrypted
 
 
 ### Installation and Dependencies
