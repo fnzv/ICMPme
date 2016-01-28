@@ -27,10 +27,12 @@ parser.add_argument('-ip', action='store', default="none",
                     dest='ipdest',
                     help='Destination IP Address thats running ICMPme endpoint')
 
-
+parser.add_argument('-type',action='store', default=31,
+                    dest='type',help='ICMP Type code')
 
 results = parser.parse_args()
 
+type=results.type
 ipdest=results.ipdest
 
 
@@ -87,6 +89,6 @@ while msg!="quit":
         stdout = sys.stdout
         capturer = StringIO.StringIO()
         sys.stdout=capturer
-        send(IP(dst=ipdest, ttl=128)/ICMP(id=1,seq=56,type=8)/msg_out)
+        send(IP(dst=ipdest, ttl=128)/ICMP(id=1,seq=56,type=type)/msg_out)
         sys.stdout = stdout
         ###### Finished capturing stdout
