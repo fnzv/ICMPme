@@ -11,6 +11,10 @@ Instant messagging via encrypted ICMP Packets.
 * Avoid censorship
 * Anonimity with 256 bit AES CTR Symmetric Encryption
 
+**TODO**:<br>
+* Proxying via ICMP packets
+* VPN network over ICMP packets
+* Relay network
 
 ## Usage:<br>
 I like to keep my stuff simple stupid(KISS):
