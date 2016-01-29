@@ -41,5 +41,9 @@ Well that's easy... no one will be able to know if these ICMP packets are Pings 
 * [Official site](https://github.com/ricmoo/pyaes)<br>
 * use `pip install pyaes`
 
+### Contribute<br>
+ If you are a developer just send me pull requests\messages about new features<br>
+ If you are an user open issues about errors\solutions <br>
+ <br>
 
 
